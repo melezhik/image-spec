@@ -8,6 +8,7 @@ tasks:
     go version
     cd source
     export PATH=image-spec/go/bin:$PATH
+    make install.tools
     make .gitvalidation
     make lint
     make check-license
