@@ -1,0 +1,39 @@
+tasks:
+ -
+  name: go_test
+  language: Bash
+  default: true
+  code: |
+    set -e
+    go version
+    cd source
+    export PATH=image-spec/go/bin:$PATH
+    make .gitvalidation
+    make lint
+    make check-license
+    make test
+  depends:
+    -
+      name: make
+ -
+  name: make
+  language: Bash
+  code: |
+    set -e
+    go version
+    cd source
+    export PATH=image-spec/go/bin:$PATH
+    make install.tools
+    go get -t -d .
+    ls ../
+    make
+  depends:
+    -
+      name: install-go
+ -
+    name: install-go
+    language: Bash
+    code: |
+      sudo apk add go \
+      --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
+
