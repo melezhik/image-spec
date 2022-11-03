@@ -7,6 +7,7 @@ tasks:
     set -e
     go version
     cd source
+    export GOPATH=image-spec/go
     export PATH=image-spec/go/bin:$PATH
     make .gitvalidation
     make lint
@@ -22,6 +23,7 @@ tasks:
     set -e
     go version
     cd source
+    export GOPATH=image-spec/go
     export PATH=image-spec/go/bin:$PATH
     make install.tools
     go get -t -d .
