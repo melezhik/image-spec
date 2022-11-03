@@ -7,8 +7,7 @@ tasks:
     set -e
     go version
     cd source
-    export GOPATH=$PWD/image-spec/go
-    export PATH=image-spec/go/bin:$PATH
+    export PATH=$HOME/go/image-spec/go/bin:$PATH
     make .gitvalidation
     make lint
     make check-license
@@ -23,10 +22,9 @@ tasks:
     set -e
     go version
     cd source
-    export GOPATH=$PWD/image-spec/go
-    export PATH=image-spec/go/bin:$PATH
+    export PATH=$HOME/go/image-spec/go/bin:$PATH
     make install.tools
-    go get -t -d .
+    go get -t -d ./...
     ls ../
     make
   depends:
