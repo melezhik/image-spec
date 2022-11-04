@@ -8,9 +8,9 @@ tasks:
     go version
     cd source
     export PATH=$HOME/go/image-spec/go/bin:$PATH
-    make install.tools
     go get -t -d ./...
     ls ../
+    make install.tools
     make
     make .gitvalidation
     make lint
